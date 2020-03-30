@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bienvenido {{user.name.fullName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item>
+    <img src="{{user.photo}}" width="150" height="150">
+  </ion-item>
+
+  <ion-list class="list">
+    <ion-item>
+      <ion-label>{{user.name.fullName}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{user.gender}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{user.birthday.toString().substring(0, 10)}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{user.rfc}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+      <ion-chip color="primary" *ngFor="let interest of user.interests">
+        <ion-label>{{interest.interest}}</ion-label>
+      </ion-chip>
+  </ion-item>
+  <ion-button (click)="galeria(user)" expand="block"  shape="round">
+    Galeria
+  </ion-button>
+
+</ion-content>
